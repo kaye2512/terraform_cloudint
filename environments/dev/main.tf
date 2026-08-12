@@ -20,6 +20,8 @@ module "compute" {
   environment       = var.environment
   subnet_id         = module.network.subnet_id
   security_group_id = module.security.security_group_id
+  hostname          = var.hostname
+  username          = var.username
+  ssh_public_key    = file("/home/ansible/.ssh/id_rsa.pub")
 }
-
 

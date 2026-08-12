@@ -1,4 +1,4 @@
-output "instance_hostname" {
-  description = "DNS publique de l'instance EC2"
-  value       = module.compute.instance_public_dns
+output "instance_public_ip" { 
+  description = "The public IP address of the instance"
+  value = module.compute.public_ip 
 }

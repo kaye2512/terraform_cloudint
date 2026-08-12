@@ -56,3 +56,15 @@ variable "ssh_allowed_cidr" {
   type        = string
   default     = "0.0.0.0/0"
 }
+
+variable "hostname" {
+  description = "Hostname for the EC2 instance"
+  type        = string
+  default     = "dev-instance"
+}
+
+variable "username" {
+  description = "Username for the EC2 instance"
+  type        = string
+  default     = "kaye"
+}
