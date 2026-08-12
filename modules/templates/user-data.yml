@@ -1,0 +1,32 @@
+#cloud-config
+
+# Utilisateurs à créer
+users:
+  - name: deploy
+    groups: sudo
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAA...
+    sudo: ALL=(ALL) NOPASSWD:ALL
+
+# Mise à jour des paquets existants
+package_update: true
+package_upgrade: true
+
+# Paquets à installer
+packages:
+  - nginx
+  - git
+  - htop
+
+# Fichiers à créer
+write_files:
+  - path: /etc/motd
+    content: |
+      Bienvenue sur ce serveur configuré par cloud-init!
+    permissions: '0644'
+
+# Commandes à exécuter (stage Final)
+runcmd:
+  - systemctl enable nginx
+  - systemctl start nginx
