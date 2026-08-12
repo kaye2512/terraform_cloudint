@@ -1,12 +1,3 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 6.0"
-    }
-  }
-}
-
 module "network" {
   source                  = "../../modules/network"
   vpc_cidr_block          = var.vpc_cidr_block
@@ -29,6 +20,8 @@ module "compute" {
   environment       = var.environment
   subnet_id         = module.network.subnet_id
   security_group_id = module.security.security_group_id
+  hostname          = var.hostname
+  username          = var.username
+  ssh_public_key    = file("/home/ansible/.ssh/id_rsa.pub")
 }
-
 

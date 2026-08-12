@@ -18,7 +18,7 @@ variable "environment" {
 variable "instance_name" {
   description = "Valeur de l'instance aws nom de tag."
   type        = string
-  default     = "terraform"
+  default     = "dev-instance"
 }
 
 variable "instance_type" {
@@ -55,4 +55,16 @@ variable "ssh_allowed_cidr" {
   description = "CIDR block allowed to access the instance via SSH"
   type        = string
   default     = "0.0.0.0/0"
+}
+
+variable "hostname" {
+  description = "Hostname for the EC2 instance"
+  type        = string
+  default     = "dev-instance"
+}
+
+variable "username" {
+  description = "Username for the EC2 instance"
+  type        = string
+  default     = "kaye"
 }
