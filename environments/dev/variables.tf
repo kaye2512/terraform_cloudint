@@ -18,7 +18,7 @@ variable "environment" {
 variable "instance_name" {
   description = "Valeur de l'instance aws nom de tag."
   type        = string
-  default     = "terraform"
+  default     = "dev-instance"
 }
 
 variable "instance_type" {

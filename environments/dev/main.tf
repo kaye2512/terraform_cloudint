@@ -1,12 +1,3 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 6.0"
-    }
-  }
-}
-
 module "network" {
   source                  = "../../modules/network"
   vpc_cidr_block          = var.vpc_cidr_block
