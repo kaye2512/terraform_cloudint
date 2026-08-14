@@ -1,4 +1,3 @@
-# Create a VPC
 resource "aws_instance" "server" {
   ami                    = var.ami_id
   instance_type          = var.instance_type
@@ -10,10 +9,6 @@ resource "aws_instance" "server" {
     username       = var.username
     ssh_public_key = var.ssh_public_key
   })
-  tags = {
-    Environment = var.environment
-    Name        = var.instance_name
-  }
 }
 
 

@@ -1,0 +1,53 @@
+########################################
+# Project Configuration
+########################################
+project_name = "archi-tip-top"
+environment  = "staging" # Options: "staging" or "prod"
+
+########################################
+# AWS Configuration
+########################################
+aws_region = "eu-west-3" # Paris
+
+########################################
+# Network Configuration
+########################################
+vpc_cidr             = "10.0.0.0/16"
+public_subnet_cidrs  = ["10.0.1.0/24", "10.0.2.0/24"]
+private_subnet_cidrs = ["10.0.10.0/24", "10.0.11.0/24"]
+
+########################################
+# EC2 Configuration
+########################################
+instance_type    = "t3.small"  # t3.small recommended for Docker workloads
+root_volume_size = 20          # GB
+root_volume_type = "gp3"
+
+########################################
+# SSH Configuration
+########################################
+public_key_path = "~/.ssh/id_rsa.pub"
+
+# IMPORTANT: Restrict SSH access in production!
+# Replace with your IP address: ["YOUR_IP/32"]
+# Example: ["203.0.113.50/32", "198.51.100.0/24"]
+ssh_allowed_cidrs = ["0.0.0.0/0"] # WARNING: Open to all - change this!
+
+########################################
+# Domain Configuration (Optional)
+########################################
+# Leave empty if you don't have a domain yet
+domain_name        = ""
+create_route53_zone = false
+
+########################################
+# Application Ports
+########################################
+app_port_frontend = 3000
+app_port_backend  = 8080
+
+########################################
+# Backup Configuration
+########################################
+enable_backups        = true
+backup_retention_days = 7

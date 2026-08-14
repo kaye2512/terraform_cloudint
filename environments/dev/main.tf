@@ -9,7 +9,7 @@ module "security" {
   source           = "../../modules/security"
   environment      = var.environment
   ssh_allowed_cidr = var.ssh_allowed_cidr
-  vpc_id = module.network.vpc_id
+  vpc_id           = module.network.vpc_id
 }
 
 module "compute" {
@@ -22,6 +22,6 @@ module "compute" {
   security_group_id = module.security.security_group_id
   hostname          = var.hostname
   username          = var.username
-  ssh_public_key    = file("/home/ansible/.ssh/id_rsa.pub")
+  ssh_public_key    = file(var.ssh_public_key_path)
 }
 
