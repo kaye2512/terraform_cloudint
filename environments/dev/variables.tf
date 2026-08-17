@@ -18,11 +18,6 @@ variable "environment" {
   default     = "dev"
 }
 
-variable "instance_name" {
-  description = "Valeur de l'instance aws nom de tag."
-  type        = string
-  default     = "dev-instance"
-}
 
 variable "aws_ami" {
   description = "The AMI ID to use for the EC2 instance Debian 13"

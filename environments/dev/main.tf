@@ -16,7 +16,6 @@ module "compute" {
   source            = "../../modules/compute"
   ami_id            = var.aws_ami
   instance_type     = var.instance_type
-  instance_name     = var.instance_name
   environment       = var.environment
   subnet_id         = module.network.subnet_id
   security_group_id = module.security.security_group_id

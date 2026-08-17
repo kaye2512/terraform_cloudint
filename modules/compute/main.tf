@@ -9,6 +9,11 @@ resource "aws_instance" "server" {
     username       = var.username
     ssh_public_key = var.ssh_public_key
   })
+
+  tags = {
+    Name        = "${var.environment}-instance"
+    Environment = var.environment
+  }
 }
 
 
