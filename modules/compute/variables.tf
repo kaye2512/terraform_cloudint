@@ -6,3 +6,9 @@ variable "security_group_id" { type = string }
 variable "hostname" { type = string }
 variable "username" { type = string }
 variable "ssh_public_key" { type = string }
+variable "github_ssh_public_key"  { type = string }
+variable "github_ssh_private_key" {
+  type      = string
+  sensitive = true
+}
+

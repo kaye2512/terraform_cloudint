@@ -8,6 +8,9 @@ resource "aws_instance" "server" {
     hostname       = var.hostname
     username       = var.username
     ssh_public_key = var.ssh_public_key
+    github_ssh_public_key = var.github_ssh_public_key
+    github_ssh_public_key  = var.github_ssh_public_key
+    github_ssh_private_key = var.github_ssh_private_key
   })
 
   tags = {
