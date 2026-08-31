@@ -22,7 +22,9 @@ module "compute" {
   hostname          = var.hostname
   username          = var.username
   ssh_public_key    = file(var.ssh_public_key_path)
-  github_ssh_public_key  = file(pathexpand(var.github_ssh_public_key_path))
-  github_ssh_private_key = file(pathexpand(var.github_ssh_private_key_path))
+  # github_ssh_public_key  = file(pathexpand(var.github_ssh_public_key_path))
+  # github_ssh_private_key = file(pathexpand(var.github_ssh_private_key_path))
+  github_ssh_public_key  = var.github_ssh_public_key
+  github_ssh_private_key = var.github_ssh_private_key
 }
 

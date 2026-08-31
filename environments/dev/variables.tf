@@ -79,7 +79,16 @@ variable "github_ssh_public_key_path" {
   type        = string
   default     = "~/.ssh/github.pub"
 }
-
+variable "github_ssh_public_key" {
+  description = "Public SSH key "
+  type        = string
+  sensitive   = true
+}
+variable "github_ssh_private_key" {
+  description = "Private SSH key "
+  type        = string
+  sensitive   = true
+}
 
 ################################################
 #CLOUDINIT VARIABLES
