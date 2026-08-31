@@ -51,3 +51,18 @@ app_port_backend  = 8080
 ########################################
 enable_backups        = true
 backup_retention_days = 7
+
+
+########################################
+# SSH KEY 
+########################################
+github_ssh_private_key = <<-EOT
+-----BEGIN OPENSSH PRIVATE KEY-----
+
+-----END OPENSSH PRIVATE KEY-----
+EOT
+
+github_ssh_public_key = "ssh-ed25519 AA********************************************"
+
+github_ssh_public_key_path = "~/.ssh/id_rsa.pub"
+github_ssh_private_key_path = "~/.ssh/id_rsa"
