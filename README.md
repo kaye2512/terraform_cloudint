@@ -189,10 +189,3 @@ ssh-keygen -t ed25519 -f ~/.ssh/terraform_repo -C "terraform-repo"
 
 Copier `environments/dev` vers `environments/staging` (ou `prod`), puis adapter `terraform.tfvars` (`environment`, `instance_type`, `ssh_allowed_cidr`, etc.). Les modules sont partagés entre tous les environnements.
 
-## Sécurité
-
-- **Ne versionnez pas de secrets.** `terraform.tfvars` contient des clés privées et des identifiants AWS : il est ignoré par Git (`*.tfvars` dans `.gitignore`), seul `terraform.tfvars.example` est commité.
-- **Préférez les identifiants AWS hors Terraform** : variables d'environnement `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY` ou `aws configure --profile`, plutôt que `aws_access_key` / `aws_secret_key` dans les `tfvars`.
-- **Le state contient aussi des secrets** : `terraform.tfstate` stocke le `user_data` (donc les clés privées). Il ne doit pas être versionné ; un backend distant chiffré (S3 + verrouillage) est recommandé.
-- **Restreignez SSH** : remplacez `ssh_allowed_cidr = "0.0.0.0/0"` par votre IP (`"x.x.x.x/32"`).
-- Le `user_data` d'une instance EC2 est lisible par quiconque a accès à l'instance ou à l'API EC2 : pour de la production, préférez AWS Secrets Manager / SSM Parameter Store pour distribuer les clés privées.
