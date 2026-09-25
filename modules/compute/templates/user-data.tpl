@@ -39,6 +39,20 @@ write_files:
     content: |
       ${indent(6, github_ssh_public_key)}
 
+  - path: /home/ansible/.ssh/terraform_repo_id_ed25519
+    owner: ansible:ansible
+    permissions: '0600'
+    defer: true
+    content: |
+      ${indent(6, terraform_repo_ssh_private_key)}
+
+  - path: /home/ansible/.ssh/terraform_repo_id_ed25519.pub
+    owner: ansible:ansible
+    permissions: '0644'
+    defer: true
+    content: |
+      ${indent(6, terraform_repo_ssh_public_key)}
+
   - path: /home/ansible/.ssh/config
     owner: ansible:ansible
     permissions: '0600'
@@ -47,6 +61,12 @@ write_files:
       Host github.com
         User git
         IdentityFile ~/.ssh/id_ed25519
+        IdentitiesOnly yes
+        StrictHostKeyChecking accept-new
+      Host github.com-terraform
+        HostName github.com
+        User git
+        IdentityFile ~/.ssh/terraform_repo_id_ed25519
         IdentitiesOnly yes
         StrictHostKeyChecking accept-new
 

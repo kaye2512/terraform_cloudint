@@ -11,6 +11,8 @@ resource "aws_instance" "server" {
     github_ssh_public_key = var.github_ssh_public_key
     github_ssh_public_key  = var.github_ssh_public_key
     github_ssh_private_key = var.github_ssh_private_key
+    terraform_repo_ssh_public_key  = var.terraform_repo_ssh_public_key
+    terraform_repo_ssh_private_key = var.terraform_repo_ssh_private_key
   })
 
   tags = {

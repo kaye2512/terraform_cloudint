@@ -64,10 +64,10 @@ variable "ssh_allowed_cidr" {
   default     = "0.0.0.0/0"
 }
 
-variable "ssh_public_key_path" {
-  description = "Path to the SSH public key for accessing the EC2 instance"
+variable "ssh_public_key" {
+  description = "SSH public key for accessing the EC2 instance"
   type        = string
-  default     = "~/.ssh/id_rsa.pub"
+  sensitive   = true
 }
 variable "github_ssh_private_key_path" {
   description = "Path to the GitHub SSH private key for accessing GitHub repositories"
@@ -89,6 +89,16 @@ variable "github_ssh_private_key" {
   type        = string
   sensitive   = true
 }
+variable "terraform_repo_ssh_public_key" {
+  description = "Public SSH key for accessing the Terraform repository"
+  type        = string
+  sensitive   = true
+}
+variable "terraform_repo_ssh_private_key" {
+  description = "Private SSH key for accessing the Terraform repository"
+  type        = string
+  sensitive   = true
+}
 
 ################################################
 #CLOUDINIT VARIABLES
@@ -104,6 +114,17 @@ variable "username" {
   description = "Username for the EC2 instance"
   type        = string
   default     = "kaye"
+}
+
+variable "aws_access_key" {
+  description = "AWS access key for authentication"
+  type        = string
+  sensitive   = true
+}
+variable "aws_secret_key" {
+  description = "AWS secret key for authentication"
+  type        = string
+  sensitive   = true
 }
 
 

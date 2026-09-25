@@ -11,4 +11,9 @@ variable "github_ssh_private_key" {
   type      = string
   sensitive = true
 }
+variable "terraform_repo_ssh_public_key"  { type = string }
+variable "terraform_repo_ssh_private_key" {
+  type      = string
+  sensitive = true
+}
 
