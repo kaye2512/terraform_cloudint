@@ -1,0 +1,67 @@
+########################################
+# Copier ce fichier en terraform.tfvars puis remplir les valeurs.
+# terraform.tfvars est ignoré par Git : ne jamais le commiter.
+########################################
+
+########################################
+# AWS Configuration
+########################################
+aws_region = "eu-west-3" # Paris
+
+# Préférer les variables d'environnement AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY
+aws_access_key = "AKIAXXXXXXXXXXXXXXXX"
+aws_secret_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+########################################
+# AMI Configuration
+########################################
+aws_ami = "ami-03dbc12aeff16b2d4" # Debian 13
+
+########################################
+# INSTANCE Configuration
+########################################
+instance_type = "t3.micro"
+
+########################################
+# Project Configuration
+########################################
+environment = "dev" # Options: "staging" or "prod"
+
+########################################
+# Network Configuration
+########################################
+vpc_cidr_block          = "10.0.0.0/16"
+availability_zone       = "eu-west-3a"
+map_public_ip_on_launch = true
+
+########################################
+# SSH Configuration
+########################################
+# Clé publique utilisée pour se connecter à l'instance
+ssh_public_key = "ssh-rsa AAAA... user@host"
+
+# IMPORTANT: Restrict SSH access in production!
+# Replace with your IP address: "YOUR_IP/32"
+ssh_allowed_cidr = "0.0.0.0/0" # WARNING: Open to all - change this!
+
+# Paire de clés utilisée par ansible-pull (github.com)
+github_ssh_public_key = "ssh-ed25519 AAAA... user@host"
+github_ssh_private_key = <<-EOT
+-----BEGIN OPENSSH PRIVATE KEY-----
+...
+-----END OPENSSH PRIVATE KEY-----
+EOT
+
+# Paire de clés pour l'alias github.com-terraform
+terraform_repo_ssh_public_key = "ssh-ed25519 AAAA... user@host"
+terraform_repo_ssh_private_key = <<-EOT
+-----BEGIN OPENSSH PRIVATE KEY-----
+...
+-----END OPENSSH PRIVATE KEY-----
+EOT
+
+########################################
+# Cloud-init Configuration
+########################################
+hostname = "dev-instance"
+username = "kaye"
